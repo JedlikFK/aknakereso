@@ -10,6 +10,7 @@ namespace aknakereso
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Heloo GIT");
             Console.ReadKey();
         }
     }
