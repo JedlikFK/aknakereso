@@ -8,18 +8,51 @@ namespace aknakereso
 {
     class Program
     {
-        char[,] palya = new char[10, 10];
+        
         static void Main(string[] args)
         {
-            feltoltes();
-
+            char[,] palya = new char[10, 10];
+            feltoltes(palya);
+            kirajzolo(palya);
             
             Console.ReadKey();
         }
 
-        static void feltoltes()
+        static void feltoltes(char[,] palya)
         {
-            Console.WriteLine();
+            for (int i = 0; i < palya.GetLength(0); i++)
+            {
+                for (int j = 0; j < palya.GetLength(1); j++)
+                {
+                    palya[i, j] = '_';
+                }
+            }
+            Random rnd = new Random();
+            int a = 0;
+            int b = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                do
+                {
+                    a = rnd.Next(0, 10);
+                    b = rnd.Next(0, 10);
+                } while (palya[a,b]=='B');
+                palya[a, b] = 'B';
+            }
         }
+
+        static void kirajzolo(char[,] palya)
+        {
+            for (int i = 0; i < palya.GetLength(0); i++)
+            {
+                for (int j = 0; j < palya.GetLength(1); j++)
+                {
+                    Console.Write(palya[i,j]);
+                }
+                Console.WriteLine();
+            }
+        }
+
+        
     }
 }
