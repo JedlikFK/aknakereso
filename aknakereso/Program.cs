@@ -8,10 +8,18 @@ namespace aknakereso
 {
     class Program
     {
+        char[,] palya = new char[10, 10];
         static void Main(string[] args)
         {
-            Console.WriteLine("Heloo GIT");
+            feltoltes();
+
+            
             Console.ReadKey();
+        }
+
+        static void feltoltes()
+        {
+            
         }
     }
 }
