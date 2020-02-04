@@ -19,7 +19,7 @@ namespace aknakereso
 
         static void feltoltes()
         {
-            
+            Console.WriteLine();
         }
     }
 }
