@@ -4,55 +4,111 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace aknakereso
+namespace Aknakereso
 {
     class Program
     {
-        
+
+
+        static void Feltöltés(char[,] pálya)
+        {
+            for (int i = 0; i < pálya.GetLength(0); i++)
+            {
+                for (int j = 0; j < pálya.GetLength(1); j++)
+                {
+                    pálya[i, j] = '_';
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
-            char[,] palya = new char[10, 10];
-            feltoltes(palya);
-            kirajzolo(palya);
-            
+            char[,] pálya = new char[10, 10];
+            Feltöltés(pálya);
+            Console.WriteLine("adja meg mennyi bombát szeretne");
+            int bombaszam = int.Parse(Console.ReadLine());
+            bombasorsolo(pálya, bombaszam);
+            Kirajzoló(pálya, false);
+            lepes(pálya);
             Console.ReadKey();
         }
 
-        static void feltoltes(char[,] palya)
+        static void lepes(char[,] pálya)
         {
-            for (int i = 0; i < palya.GetLength(0); i++)
+            int sor, oszlop;
+            do
             {
-                for (int j = 0; j < palya.GetLength(1); j++)
+                Console.Clear();
+                Kirajzoló(pálya, false);
+                do
                 {
-                    palya[i, j] = '_';
+                    Console.WriteLine("adja meg a sort");
+                    sor = int.Parse(Console.ReadLine());
+                } while (sor > 10 || sor <= 0);
+                sor--;
+                do
+                {
+                    Console.WriteLine("adja meg az oszlopot");
+                    oszlop = int.Parse(Console.ReadLine());
+                } while (oszlop > 10 || oszlop <= 0);
+                oszlop--;
+                if (pálya[sor, oszlop] == 'B')
+                {
+                    Console.WriteLine("Felrobbantál");
+                    Kirajzoló(pálya, true);
+                    break;
                 }
-            }
-            Random rnd = new Random();
-            int a = 0;
-            int b = 0;
-            for (int i = 0; i < 10; i++)
+                int szomszedok = 0;
+                if (sor > 0 && pálya[sor - 1, oszlop] == 'B') szomszedok++;
+                if (sor > 0 && oszlop > 0 && pálya[sor - 1, oszlop - 1] == 'B') szomszedok++;
+                if (sor > 0 && oszlop < 9 && pálya[sor - 1, oszlop + 1] == 'B') szomszedok++;
+                if (oszlop > 0 && pálya[sor, oszlop - 1] == 'B') szomszedok++;
+                if (oszlop < 9 && pálya[sor, oszlop + 1] == 'B') szomszedok++;
+                if (oszlop > 0 && sor < 9 && pálya[sor + 1, oszlop - 1] == 'B') szomszedok++;
+                if (sor < 9 && pálya[sor + 1, oszlop] == 'B') szomszedok++;
+                if (sor < 9 && oszlop < 9 && pálya[sor + 1, oszlop + 1] == 'B') szomszedok++;
+                pálya[sor, oszlop] = Convert.ToChar(szomszedok);
+
+            } while (pálya[sor, oszlop] != 'B');
+        }
+
+        static void bombasorsolo(char[,] pálya, int bombaszam)
+        {
+            Random gép = new Random();
+            int sor, oszlop;
+            for (int i = 0; i < bombaszam; i++)
             {
                 do
                 {
-                    a = rnd.Next(0, 10);
-                    b = rnd.Next(0, 10);
-                } while (palya[a,b]=='B');
-                palya[a, b] = 'B';
+                    sor = gép.Next(10);
+                    oszlop = gép.Next(10);
+                } while (pálya[sor, oszlop] == 'B');
+                pálya[sor, oszlop] = 'B';
             }
         }
 
-        static void kirajzolo(char[,] palya)
+        static void Kirajzoló(char[,] pálya, bool showbomb)
         {
-            for (int i = 0; i < palya.GetLength(0); i++)
+            for (int i = 0; i < pálya.GetLength(0); i++)
             {
-                for (int j = 0; j < palya.GetLength(1); j++)
+                for (int j = 0; j < pálya.GetLength(1); j++)
                 {
-                    Console.Write(palya[i,j]);
+                    if (showbomb)
+                    {
+                        Console.Write(pálya[i, j]);
+                    }
+                    if (pálya[i, j] == '0' || pálya[i, j] == '1' || pálya[i, j] == '2' || pálya[i, j] == '3' || pálya[i, j] == '4' || pálya[i, j] == '5' || pálya[i, j] == '6' || pálya[i, j] == '7' || pálya[i, j] == '8')
+                    {
+                        Console.Write(pálya[i, j]);
+                    }
+                    else
+                    {
+                        Console.Write('_');
+                    }
+                    Console.Write('|');
                 }
                 Console.WriteLine();
             }
         }
-
-        
     }
 }
