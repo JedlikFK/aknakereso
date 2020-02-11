@@ -8,19 +8,7 @@ namespace Aknakereso
 {
     class Program
     {
-
-
-        static void Feltöltés(char[,] pálya)
-        {
-            for (int i = 0; i < pálya.GetLength(0); i++)
-            {
-                for (int j = 0; j < pálya.GetLength(1); j++)
-                {
-                    pálya[i, j] = '_';
-                }
-            }
-        }
-
+        
         static void Main(string[] args)
         {
             char[,] pálya = new char[10, 10];
@@ -31,6 +19,17 @@ namespace Aknakereso
             Kirajzoló(pálya, false);
             lepes(pálya);
             Console.ReadKey();
+        }
+
+        static void Feltöltés(char[,] pálya)
+        {
+            for (int i = 0; i < pálya.GetLength(0); i++)
+            {
+                for (int j = 0; j < pálya.GetLength(1); j++)
+                {
+                    pálya[i, j] = '_';
+                }
+            }
         }
 
         static void lepes(char[,] pálya)
@@ -97,7 +96,7 @@ namespace Aknakereso
                     {
                         Console.Write(pálya[i, j]);
                     }
-                    if (pálya[i, j] == '0' || pálya[i, j] == '1' || pálya[i, j] == '2' || pálya[i, j] == '3' || pálya[i, j] == '4' || pálya[i, j] == '5' || pálya[i, j] == '6' || pálya[i, j] == '7' || pálya[i, j] == '8')
+                    else if (pálya[i, j] == '0' || pálya[i, j] == '1' || pálya[i, j] == '2' || pálya[i, j] == '3' || pálya[i, j] == '4' || pálya[i, j] == '5' || pálya[i, j] == '6' || pálya[i, j] == '7' || pálya[i, j] == '8')
                     {
                         Console.Write(pálya[i, j]);
                     }

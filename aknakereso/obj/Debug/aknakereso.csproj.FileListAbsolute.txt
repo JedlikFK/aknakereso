@@ -5,3 +5,10 @@ C:\Users\Farkas.Krisztián\Desktop\aknakereso\aknakereso\obj\Debug\aknakereso.cs
 C:\Users\Farkas.Krisztián\Desktop\aknakereso\aknakereso\obj\Debug\aknakereso.csproj.CoreCompileInputs.cache
 C:\Users\Farkas.Krisztián\Desktop\aknakereso\aknakereso\obj\Debug\aknakereso.exe
 C:\Users\Farkas.Krisztián\Desktop\aknakereso\aknakereso\obj\Debug\aknakereso.pdb
+C:\Users\Farkas.Krisztián\Source\Repos\JedlikFK\aknakereso\aknakereso\bin\Debug\aknakereso.exe.config
+C:\Users\Farkas.Krisztián\Source\Repos\JedlikFK\aknakereso\aknakereso\bin\Debug\aknakereso.exe
+C:\Users\Farkas.Krisztián\Source\Repos\JedlikFK\aknakereso\aknakereso\bin\Debug\aknakereso.pdb
+C:\Users\Farkas.Krisztián\Source\Repos\JedlikFK\aknakereso\aknakereso\obj\Debug\aknakereso.csprojAssemblyReference.cache
+C:\Users\Farkas.Krisztián\Source\Repos\JedlikFK\aknakereso\aknakereso\obj\Debug\aknakereso.csproj.CoreCompileInputs.cache
+C:\Users\Farkas.Krisztián\Source\Repos\JedlikFK\aknakereso\aknakereso\obj\Debug\aknakereso.exe
+C:\Users\Farkas.Krisztián\Source\Repos\JedlikFK\aknakereso\aknakereso\obj\Debug\aknakereso.pdb
